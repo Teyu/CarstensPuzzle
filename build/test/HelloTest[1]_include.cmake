@@ -1,0 +1,5 @@
+if(EXISTS "/home/julia/Documents/carstens_puzzle/build/test/HelloTest[1]_tests.cmake")
+  include("/home/julia/Documents/carstens_puzzle/build/test/HelloTest[1]_tests.cmake")
+else()
+  add_test(HelloTest_NOT_BUILT HelloTest_NOT_BUILT)
+endif()

@@ -1,0 +1,14 @@
+# Julia Michaely
+
+CMAKE_MINIMUM_REQUIRED (VERSION 3.24) # use feature: fetch content via URL
+CMAKE_POLICY(VERSION 3.24)
+
+PROJECT(Hello)
+PROJECT(HelloTest)
+
+# GoogleTest requires at least C++14
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(test)
