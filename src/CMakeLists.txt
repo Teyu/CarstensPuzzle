@@ -1,6 +1,6 @@
 # Julia Michaely
 
-ADD_EXECUTABLE ( Hello
-	hello.cpp
+add_executable ( CarstensPuzzle
+    main.cpp
 )
 

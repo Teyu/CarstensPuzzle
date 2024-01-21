@@ -4,14 +4,14 @@
 /home/julia/Documents/carstens_puzzle/build/CMakeFiles/install.dir
 /home/julia/Documents/carstens_puzzle/build/CMakeFiles/install/local.dir
 /home/julia/Documents/carstens_puzzle/build/CMakeFiles/install/strip.dir
-/home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/Hello.dir
+/home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/CarstensPuzzle.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/edit_cache.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/rebuild_cache.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/list_install_components.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/local.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/strip.dir
-/home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/HelloTest.dir
+/home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/TestRandomizer.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/edit_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/rebuild_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/list_install_components.dir

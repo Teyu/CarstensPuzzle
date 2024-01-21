@@ -162,30 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Hello
+# Target rules for targets named CarstensPuzzle
 
 # Build rule for target.
-Hello: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Hello
-.PHONY : Hello
+CarstensPuzzle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CarstensPuzzle
+.PHONY : CarstensPuzzle
 
 # fast build rule for target.
-Hello/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Hello.dir/build.make src/CMakeFiles/Hello.dir/build
-.PHONY : Hello/fast
+CarstensPuzzle/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/build
+.PHONY : CarstensPuzzle/fast
 
 #=============================================================================
-# Target rules for targets named HelloTest
+# Target rules for targets named TestRandomizer
 
 # Build rule for target.
-HelloTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HelloTest
-.PHONY : HelloTest
+TestRandomizer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestRandomizer
+.PHONY : TestRandomizer
 
 # fast build rule for target.
-HelloTest/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/HelloTest.dir/build.make test/CMakeFiles/HelloTest.dir/build
-.PHONY : HelloTest/fast
+TestRandomizer/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/build
+.PHONY : TestRandomizer/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -251,8 +251,8 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Hello"
-	@echo "... HelloTest"
+	@echo "... CarstensPuzzle"
+	@echo "... TestRandomizer"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

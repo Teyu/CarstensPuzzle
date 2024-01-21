@@ -1,6 +1,6 @@
 # Julia Michaely
 
-INCLUDE(FetchContent)
+include(FetchContent)
 set(DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
 FetchContent_Declare(
   googletest
@@ -8,18 +8,21 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-ENABLE_TESTING()
+enable_testing()
 
-ADD_EXECUTABLE ( HelloTest
-    hello_test.cpp
+add_executable ( TestRandomizer
+    RandomizerTest.cpp
+    ${PROJECT_SOURCE_DIR}/include/Randomizer.h
+    ${PROJECT_SOURCE_DIR}/src/Randomizer.cpp
 )
  
-TARGET_LINK_LIBRARIES(
-  HelloTest
+target_link_libraries( TestRandomizer
   gtest
   gtest_main
+  gmock
+  gmock_main
 )
 
-INCLUDE(GoogleTest)
-gtest_discover_tests(HelloTest)
+include(GoogleTest)
+gtest_discover_tests(TestRandomizer)
 

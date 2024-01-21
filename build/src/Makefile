@@ -162,42 +162,42 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/Hello.dir/rule:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Hello.dir/rule
-.PHONY : src/CMakeFiles/Hello.dir/rule
+src/CMakeFiles/CarstensPuzzle.dir/rule:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/CarstensPuzzle.dir/rule
+.PHONY : src/CMakeFiles/CarstensPuzzle.dir/rule
 
 # Convenience name for target.
-Hello: src/CMakeFiles/Hello.dir/rule
-.PHONY : Hello
+CarstensPuzzle: src/CMakeFiles/CarstensPuzzle.dir/rule
+.PHONY : CarstensPuzzle
 
 # fast build rule for target.
-Hello/fast:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Hello.dir/build.make src/CMakeFiles/Hello.dir/build
-.PHONY : Hello/fast
+CarstensPuzzle/fast:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/build
+.PHONY : CarstensPuzzle/fast
 
-hello.o: hello.cpp.o
-.PHONY : hello.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-hello.cpp.o:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Hello.dir/build.make src/CMakeFiles/Hello.dir/hello.cpp.o
-.PHONY : hello.cpp.o
+main.cpp.o:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-hello.i: hello.cpp.i
-.PHONY : hello.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-hello.cpp.i:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Hello.dir/build.make src/CMakeFiles/Hello.dir/hello.cpp.i
-.PHONY : hello.cpp.i
+main.cpp.i:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-hello.s: hello.cpp.s
-.PHONY : hello.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-hello.cpp.s:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Hello.dir/build.make src/CMakeFiles/Hello.dir/hello.cpp.s
-.PHONY : hello.cpp.s
+main.cpp.s:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -211,10 +211,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Hello"
-	@echo "... hello.o"
-	@echo "... hello.i"
-	@echo "... hello.s"
+	@echo "... CarstensPuzzle"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
