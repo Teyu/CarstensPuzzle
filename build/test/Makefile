@@ -175,6 +175,44 @@ TestRandomizer/fast:
 	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/build
 .PHONY : TestRandomizer/fast
 
+# Convenience name for target.
+test/CMakeFiles/TestPuzzle.dir/rule:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TestPuzzle.dir/rule
+.PHONY : test/CMakeFiles/TestPuzzle.dir/rule
+
+# Convenience name for target.
+TestPuzzle: test/CMakeFiles/TestPuzzle.dir/rule
+.PHONY : TestPuzzle
+
+# fast build rule for target.
+TestPuzzle/fast:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/build
+.PHONY : TestPuzzle/fast
+
+PuzzleTest.o: PuzzleTest.cpp.o
+.PHONY : PuzzleTest.o
+
+# target to build an object file
+PuzzleTest.cpp.o:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o
+.PHONY : PuzzleTest.cpp.o
+
+PuzzleTest.i: PuzzleTest.cpp.i
+.PHONY : PuzzleTest.i
+
+# target to preprocess a source file
+PuzzleTest.cpp.i:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.i
+.PHONY : PuzzleTest.cpp.i
+
+PuzzleTest.s: PuzzleTest.cpp.s
+.PHONY : PuzzleTest.s
+
+# target to generate assembly for a file
+PuzzleTest.cpp.s:
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.s
+.PHONY : PuzzleTest.cpp.s
+
 RandomizerTest.o: RandomizerTest.cpp.o
 .PHONY : RandomizerTest.o
 
@@ -235,7 +273,11 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... TestPuzzle"
 	@echo "... TestRandomizer"
+	@echo "... PuzzleTest.o"
+	@echo "... PuzzleTest.i"
+	@echo "... PuzzleTest.s"
 	@echo "... RandomizerTest.o"
 	@echo "... RandomizerTest.i"
 	@echo "... RandomizerTest.s"

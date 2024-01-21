@@ -23,6 +23,19 @@ target_link_libraries( TestRandomizer
   gmock_main
 )
 
+add_executable ( TestPuzzle
+    PuzzleTest.cpp
+    ${PROJECT_SOURCE_DIR}/include/Puzzle.h
+)
+
+target_link_libraries( TestPuzzle
+  gtest
+  gtest_main
+  gmock
+  gmock_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(TestRandomizer)
+gtest_discover_tests(TestPuzzle)
 

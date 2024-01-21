@@ -188,6 +188,19 @@ TestRandomizer/fast:
 .PHONY : TestRandomizer/fast
 
 #=============================================================================
+# Target rules for targets named TestPuzzle
+
+# Build rule for target.
+TestPuzzle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestPuzzle
+.PHONY : TestPuzzle
+
+# fast build rule for target.
+TestPuzzle/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/build
+.PHONY : TestPuzzle/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -252,6 +265,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... CarstensPuzzle"
+	@echo "... TestPuzzle"
 	@echo "... TestRandomizer"
 	@echo "... gmock"
 	@echo "... gmock_main"

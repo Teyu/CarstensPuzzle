@@ -5,6 +5,7 @@ cmake_policy(VERSION 3.24)
 
 project(CarstensPuzzle)
 project(TestRandomizer)
+project(TestPuzzle)
 
 include_directories("include")
 

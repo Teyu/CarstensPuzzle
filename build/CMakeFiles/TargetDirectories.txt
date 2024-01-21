@@ -12,6 +12,7 @@
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/local.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/strip.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/TestRandomizer.dir
+/home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/TestPuzzle.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/edit_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/rebuild_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/list_install_components.dir
