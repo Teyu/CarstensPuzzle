@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/julia/Documents/carstens_puzzle/include -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googletest/include -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googletest -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googlemock/include -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googlemock
+CXX_INCLUDES = -I/home/julia/Documents/carstens_puzzle/include -I/home/julia/Documents/carstens_puzzle/src -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googletest/include -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googletest -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googlemock/include -isystem /home/julia/Documents/carstens_puzzle/build/_deps/googletest-src/googlemock
 
 CXX_FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
 

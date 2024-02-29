@@ -270,4 +270,5 @@ test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o: \
  /usr/include/c++/13.2.1/list /usr/include/c++/13.2.1/bits/stl_list.h \
  /usr/include/c++/13.2.1/bits/list.tcc \
  /home/julia/Documents/carstens_puzzle/include/Randomizer.h \
- /home/julia/Documents/carstens_puzzle/include/common/BaseObservable.h
+ /home/julia/Documents/carstens_puzzle/include/common/BaseObservable.h \
+ /home/julia/Documents/carstens_puzzle/src/Puzzle.inl

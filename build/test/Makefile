@@ -243,6 +243,7 @@ __/src/Randomizer.o: __/src/Randomizer.cpp.o
 # target to build an object file
 __/src/Randomizer.cpp.o:
 	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.o
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o
 .PHONY : __/src/Randomizer.cpp.o
 
 __/src/Randomizer.i: __/src/Randomizer.cpp.i
@@ -251,6 +252,7 @@ __/src/Randomizer.i: __/src/Randomizer.cpp.i
 # target to preprocess a source file
 __/src/Randomizer.cpp.i:
 	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.i
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.i
 .PHONY : __/src/Randomizer.cpp.i
 
 __/src/Randomizer.s: __/src/Randomizer.cpp.s
@@ -259,6 +261,7 @@ __/src/Randomizer.s: __/src/Randomizer.cpp.s
 # target to generate assembly for a file
 __/src/Randomizer.cpp.s:
 	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.s
+	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.s
 .PHONY : __/src/Randomizer.cpp.s
 
 # Help Target

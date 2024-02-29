@@ -13,9 +13,10 @@
           this->max_val = other.max_val;
       }
       bool setMaxMinRange(int max_val, int min_val);
-      std::list<int> createRandomNumbers(int num_numbers, int seed = 0);
+      virtual std::list<int> createRandomNumbers(int num_numbers, int seed = 0);
       int getMinValue();
       int getMaxValue();
+      virtual ~Randomizer() = default;
     private:
       int min_val = 0;
       int max_val = 0;

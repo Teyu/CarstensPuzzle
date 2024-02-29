@@ -23,8 +23,11 @@ target_link_libraries( TestRandomizer
   gmock_main
 )
 
+include_directories("${PROJECT_SOURCE_DIR}/src")
 add_executable ( TestPuzzle
     PuzzleTest.cpp
+    ${PROJECT_SOURCE_DIR}/src/Randomizer.cpp
+    ${PROJECT_SOURCE_DIR}/src/Puzzle.inl
     ${PROJECT_SOURCE_DIR}/include/Puzzle.h
 )
 

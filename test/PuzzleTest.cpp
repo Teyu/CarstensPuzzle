@@ -6,61 +6,86 @@
 #define SEED 0
 #define NUM_ITEMS 10
 
-class MockItem {};
+using namespace testing;
+using ::testing::NiceMock;
+
+//TODO: extract Mocks to header-file
+class MockItem {
+public:
+    MockItem() : id(0) {}
+    MockItem(int id) : id(id) {}
+    bool operator== (const MockItem& other) {
+        return id == other.id;
+    }
+private:
+    int id;
+};
 
 class MockListener : public PuzzleListener {
 public:
-    MockListener() : onStartCalled(false), onFinishCalled(false) {}
+    MockListener() : onCreateCalled(false), onSolvedCalled(false) {}
     void onCreateItem(int rand) override { itemsCreated.push_back (rand);}
-    void onStart() override { onStartCalled = true;}
-    void onFinish() override { onFinishCalled = true;}
+    void onCreate() override { onCreateCalled = true;}
+    void onSolved() override { onSolvedCalled = true;}
 public:
-    bool onStartCalled;
-    bool onFinishCalled;
+    bool onCreateCalled;
+    bool onSolvedCalled;
     std::list<int> itemsCreated;
 };
 
-class MockRandomizer : public Randomizer {
+class MockRandomizer : public Randomizer { //TODO: class names should be CName
 public:
-    using Randomizer::Randomizer;
-    MockRandomizer(const MockRandomizer& other) : Randomizer((Randomizer)other){}
+
+    MockRandomizer() : Randomizer () {}
+    MockRandomizer(const MockRandomizer& other) : Randomizer(other){}
+
     MOCK_METHOD(std::list<int>, createRandomNumbers, (int num_numbers, int seed), ());
+
+    void delegateToMock(std::list<int> returnList, int seed) {
+        ON_CALL (*this, createRandomNumbers (returnList.size(), seed)).
+            WillByDefault(Return(returnList));
+    }
 };
 
 class SolvedPuzzle : public Puzzle<MockItem, MockListener> {
 public:
-    using Puzzle<MockItem, MockListener>::Puzzle;
+    SolvedPuzzle(MockRandomizer* randomizer) : Puzzle<MockItem, MockListener> (randomizer) {}
+
     bool isSolved() override {
         return true;
+    }
+
+    const MockItem createItem(int rand) override {
+        return MockItem(rand);
     }
 };
 
 class UnsolvedPuzzle : public Puzzle<MockItem, MockListener> {
 public:
-    using Puzzle<MockItem, MockListener>::Puzzle;
+    UnsolvedPuzzle(MockRandomizer* randomizer) : Puzzle<MockItem, MockListener> (randomizer) {}
+
     bool isSolved() override {
         return false;
     }
+
+    const MockItem createItem(int rand) override {
+        return MockItem(rand);
+    }
 };
-
-using namespace testing;
-
-using ::testing::NaggyMock;
 
 TEST(TestPuzzle, noListenersStartOnCreateItemsNotified) {
     // Init
-    MockRandomizer randomizer;
-    MockListener listener;
-    UnsolvedPuzzle unsolvedPuzzle(&randomizer);
-
     std::list<int> returnList = {0,1,2};
     int numNumbers = returnList.size();
 
-    ON_CALL (randomizer, createRandomNumbers (numNumbers, SEED)).
-        WillByDefault(Return(returnList));
+    MockRandomizer randomizer = MockRandomizer();
+    randomizer.delegateToMock (returnList, SEED);
+
+    MockListener listener;
+    UnsolvedPuzzle unsolvedPuzzle(&randomizer);
 
     // Execute
-    unsolvedPuzzle.start (NUM_ITEMS);
+    unsolvedPuzzle.create (numNumbers, SEED);
 
     // Verify
     ASSERT_TRUE (listener.itemsCreated.empty ());
@@ -68,20 +93,19 @@ TEST(TestPuzzle, noListenersStartOnCreateItemsNotified) {
 
 TEST(TestPuzzle, hasListenersStartOnCreateItemsNotified) {
     // Init
-    MockRandomizer randomizer;
-    MockListener listener1, listener2;
-    UnsolvedPuzzle unsolvedPuzzle(&randomizer);
-
     std::list<int> returnList = {0,1,2};
     int numNumbers = returnList.size();
 
-    ON_CALL (randomizer, createRandomNumbers (numNumbers, SEED)).
-        WillByDefault(Return(returnList));
+    MockRandomizer randomizer = MockRandomizer();
+    randomizer.delegateToMock (returnList, SEED);
+
+    MockListener listener1, listener2;
+    UnsolvedPuzzle unsolvedPuzzle(&randomizer);
 
     // Execute
     unsolvedPuzzle.addListener (&listener1);
     unsolvedPuzzle.addListener (&listener2);
-    unsolvedPuzzle.start (NUM_ITEMS);
+    unsolvedPuzzle.create (numNumbers, SEED);
 
     // Verify
     ASSERT_THAT (returnList, ContainerEq(listener1.itemsCreated));
@@ -95,10 +119,10 @@ TEST(TestPuzzle, noListenersOnStartNotified) {
     UnsolvedPuzzle unsolvedPuzzle(&randomizer);
 
     // Execute
-    unsolvedPuzzle.start(NUM_ITEMS);
+    unsolvedPuzzle.create(NUM_ITEMS, SEED);
 
     // Verify
-    ASSERT_FALSE(listener.onStartCalled);
+    ASSERT_FALSE(listener.onCreateCalled);
 }
 
 TEST(TestPuzzle, hasListenersOnStartNotified) {
@@ -110,45 +134,45 @@ TEST(TestPuzzle, hasListenersOnStartNotified) {
     // Execute
     unsolvedPuzzle.addListener (&listener1);
     unsolvedPuzzle.addListener (&listener2);
-    unsolvedPuzzle.start(NUM_ITEMS);
+    unsolvedPuzzle.create(NUM_ITEMS, SEED);
 
     // Verify
-    ASSERT_TRUE(listener1.onStartCalled);
-    ASSERT_TRUE(listener1.onStartCalled);
+    ASSERT_TRUE(listener1.onCreateCalled);
+    ASSERT_TRUE(listener1.onCreateCalled);
 }
 
 TEST(TestPuzzle, modifyPuzzleUnsolvedDoNotFinish) {
     // Init
-    MockItem modifyItem;
+    MockItem item(1), newItem(2);
     MockRandomizer randomizer;
     MockListener listener;
     UnsolvedPuzzle unsolvedPuzzle(&randomizer);
 
     // Execute
     unsolvedPuzzle.addListener (&listener);
-    unsolvedPuzzle.modifyItem (modifyItem);
+    unsolvedPuzzle.modifyItem (&item, &newItem);
 
     // Verify
-    ASSERT_FALSE(listener.onFinishCalled);
+    ASSERT_FALSE(listener.onSolvedCalled);
 }
 
 TEST(TestPuzzle, puzzleSolvedNoListenersOnFinishNotified) {
     // Init
-    MockItem modifyItem;
+    MockItem item(1), newItem(2);
     MockRandomizer randomizer;
     MockListener listener;
     SolvedPuzzle solvedPuzzle(&randomizer);
 
     // Execute
-    solvedPuzzle.modifyItem (modifyItem); // invoke onFinish
+    solvedPuzzle.modifyItem (&item, &newItem); // invoke onFinish
 
     // Verify
-    ASSERT_FALSE(listener.onFinishCalled);
+    ASSERT_FALSE(listener.onSolvedCalled);
 }
 
 TEST(TestPuzzle, puzzleSolvedHasListenersOnFinishNotified) {
     // Init
-    MockItem modifyItem;
+    MockItem item(1), newItem(2);
     MockRandomizer randomizer;
     MockListener listener1, listener2;
     SolvedPuzzle solvedPuzzle(&randomizer);
@@ -156,9 +180,9 @@ TEST(TestPuzzle, puzzleSolvedHasListenersOnFinishNotified) {
     // Execute
     solvedPuzzle.addListener (&listener1);
     solvedPuzzle.addListener (&listener2);
-    solvedPuzzle.modifyItem (modifyItem); // invoke onFinish
+    solvedPuzzle.modifyItem (&item, &newItem); // invoke onFinish
 
     // Verify
-    ASSERT_TRUE(listener1.onFinishCalled);
-    ASSERT_TRUE(listener2.onFinishCalled);
+    ASSERT_TRUE(listener1.onSolvedCalled);
+    ASSERT_TRUE(listener2.onSolvedCalled);
 }
