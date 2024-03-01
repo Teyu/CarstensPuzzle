@@ -161,109 +161,6 @@ depend:
 	cd /home/julia/Documents/carstens_puzzle/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-test/CMakeFiles/TestRandomizer.dir/rule:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TestRandomizer.dir/rule
-.PHONY : test/CMakeFiles/TestRandomizer.dir/rule
-
-# Convenience name for target.
-TestRandomizer: test/CMakeFiles/TestRandomizer.dir/rule
-.PHONY : TestRandomizer
-
-# fast build rule for target.
-TestRandomizer/fast:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/build
-.PHONY : TestRandomizer/fast
-
-# Convenience name for target.
-test/CMakeFiles/TestPuzzle.dir/rule:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TestPuzzle.dir/rule
-.PHONY : test/CMakeFiles/TestPuzzle.dir/rule
-
-# Convenience name for target.
-TestPuzzle: test/CMakeFiles/TestPuzzle.dir/rule
-.PHONY : TestPuzzle
-
-# fast build rule for target.
-TestPuzzle/fast:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/build
-.PHONY : TestPuzzle/fast
-
-PuzzleTest.o: PuzzleTest.cpp.o
-.PHONY : PuzzleTest.o
-
-# target to build an object file
-PuzzleTest.cpp.o:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o
-.PHONY : PuzzleTest.cpp.o
-
-PuzzleTest.i: PuzzleTest.cpp.i
-.PHONY : PuzzleTest.i
-
-# target to preprocess a source file
-PuzzleTest.cpp.i:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.i
-.PHONY : PuzzleTest.cpp.i
-
-PuzzleTest.s: PuzzleTest.cpp.s
-.PHONY : PuzzleTest.s
-
-# target to generate assembly for a file
-PuzzleTest.cpp.s:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.s
-.PHONY : PuzzleTest.cpp.s
-
-RandomizerTest.o: RandomizerTest.cpp.o
-.PHONY : RandomizerTest.o
-
-# target to build an object file
-RandomizerTest.cpp.o:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/RandomizerTest.cpp.o
-.PHONY : RandomizerTest.cpp.o
-
-RandomizerTest.i: RandomizerTest.cpp.i
-.PHONY : RandomizerTest.i
-
-# target to preprocess a source file
-RandomizerTest.cpp.i:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/RandomizerTest.cpp.i
-.PHONY : RandomizerTest.cpp.i
-
-RandomizerTest.s: RandomizerTest.cpp.s
-.PHONY : RandomizerTest.s
-
-# target to generate assembly for a file
-RandomizerTest.cpp.s:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/RandomizerTest.cpp.s
-.PHONY : RandomizerTest.cpp.s
-
-__/src/Randomizer.o: __/src/Randomizer.cpp.o
-.PHONY : __/src/Randomizer.o
-
-# target to build an object file
-__/src/Randomizer.cpp.o:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.o
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o
-.PHONY : __/src/Randomizer.cpp.o
-
-__/src/Randomizer.i: __/src/Randomizer.cpp.i
-.PHONY : __/src/Randomizer.i
-
-# target to preprocess a source file
-__/src/Randomizer.cpp.i:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.i
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.i
-.PHONY : __/src/Randomizer.cpp.i
-
-__/src/Randomizer.s: __/src/Randomizer.cpp.s
-.PHONY : __/src/Randomizer.s
-
-# target to generate assembly for a file
-__/src/Randomizer.cpp.s:
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/__/src/Randomizer.cpp.s
-	cd /home/julia/Documents/carstens_puzzle/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.s
-.PHONY : __/src/Randomizer.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -276,17 +173,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... TestPuzzle"
-	@echo "... TestRandomizer"
-	@echo "... PuzzleTest.o"
-	@echo "... PuzzleTest.i"
-	@echo "... PuzzleTest.s"
-	@echo "... RandomizerTest.o"
-	@echo "... RandomizerTest.i"
-	@echo "... RandomizerTest.s"
-	@echo "... __/src/Randomizer.o"
-	@echo "... __/src/Randomizer.i"
-	@echo "... __/src/Randomizer.s"
 .PHONY : help
 
 

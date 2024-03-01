@@ -69,19 +69,19 @@ include test/CMakeFiles/TestPuzzle.dir/progress.make
 # Include the compile flags for this target's objects.
 include test/CMakeFiles/TestPuzzle.dir/flags.make
 
-test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o: test/CMakeFiles/TestPuzzle.dir/flags.make
-test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o: /home/julia/Documents/carstens_puzzle/test/PuzzleTest.cpp
-test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o: test/CMakeFiles/TestPuzzle.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o"
-	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o -MF CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o.d -o CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o -c /home/julia/Documents/carstens_puzzle/test/PuzzleTest.cpp
+test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o: test/CMakeFiles/TestPuzzle.dir/flags.make
+test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o: /home/julia/Documents/carstens_puzzle/test/puzzle/PuzzleTest.cpp
+test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o: test/CMakeFiles/TestPuzzle.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o"
+	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o -MF CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o.d -o CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o -c /home/julia/Documents/carstens_puzzle/test/puzzle/PuzzleTest.cpp
 
-test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.i"
-	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julia/Documents/carstens_puzzle/test/PuzzleTest.cpp > CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.i
+test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.i"
+	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julia/Documents/carstens_puzzle/test/puzzle/PuzzleTest.cpp > CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.i
 
-test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.s"
-	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julia/Documents/carstens_puzzle/test/PuzzleTest.cpp -o CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.s
+test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.s"
+	cd /home/julia/Documents/carstens_puzzle/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julia/Documents/carstens_puzzle/test/puzzle/PuzzleTest.cpp -o CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.s
 
 test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o: test/CMakeFiles/TestPuzzle.dir/flags.make
 test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o: /home/julia/Documents/carstens_puzzle/src/Randomizer.cpp
@@ -99,13 +99,13 @@ test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.s: cmake_force
 
 # Object files for target TestPuzzle
 TestPuzzle_OBJECTS = \
-"CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o" \
+"CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o" \
 "CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o"
 
 # External object files for target TestPuzzle
 TestPuzzle_EXTERNAL_OBJECTS =
 
-test/TestPuzzle: test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o
+test/TestPuzzle: test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o
 test/TestPuzzle: test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o
 test/TestPuzzle: test/CMakeFiles/TestPuzzle.dir/build.make
 test/TestPuzzle: lib/libgtest.a

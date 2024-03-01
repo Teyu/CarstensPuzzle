@@ -175,32 +175,6 @@ CarstensPuzzle/fast:
 .PHONY : CarstensPuzzle/fast
 
 #=============================================================================
-# Target rules for targets named TestRandomizer
-
-# Build rule for target.
-TestRandomizer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestRandomizer
-.PHONY : TestRandomizer
-
-# fast build rule for target.
-TestRandomizer/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/build
-.PHONY : TestRandomizer/fast
-
-#=============================================================================
-# Target rules for targets named TestPuzzle
-
-# Build rule for target.
-TestPuzzle: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestPuzzle
-.PHONY : TestPuzzle
-
-# fast build rule for target.
-TestPuzzle/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/build
-.PHONY : TestPuzzle/fast
-
-#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -251,6 +225,32 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named TestPuzzle
+
+# Build rule for target.
+TestPuzzle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestPuzzle
+.PHONY : TestPuzzle
+
+# fast build rule for target.
+TestPuzzle/fast:
+	$(MAKE) $(MAKESILENT) -f test/puzzle/CMakeFiles/TestPuzzle.dir/build.make test/puzzle/CMakeFiles/TestPuzzle.dir/build
+.PHONY : TestPuzzle/fast
+
+#=============================================================================
+# Target rules for targets named TestRandomizer
+
+# Build rule for target.
+TestRandomizer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestRandomizer
+.PHONY : TestRandomizer
+
+# fast build rule for target.
+TestRandomizer/fast:
+	$(MAKE) $(MAKESILENT) -f test/randomizer/CMakeFiles/TestRandomizer.dir/build.make test/randomizer/CMakeFiles/TestRandomizer.dir/build
+.PHONY : TestRandomizer/fast
 
 # Help Target
 help:

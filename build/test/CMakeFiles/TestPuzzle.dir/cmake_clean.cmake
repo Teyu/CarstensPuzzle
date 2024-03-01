@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o"
-  "CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o.d"
   "CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o"
   "CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o.d"
+  "CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o"
+  "CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o.d"
   "TestPuzzle"
   "TestPuzzle.pdb"
   "TestPuzzle[1]_tests.cmake"

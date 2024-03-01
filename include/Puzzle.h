@@ -8,11 +8,11 @@
 #ifndef PUZZLE_H
 #define PUZZLE_H
 
+enum STATUS { SUCCESS, NO_SUCCESS };
+
 class PuzzleListener {
 public :
     virtual ~PuzzleListener() = default;
-    virtual void onCreateItem(int rand) = 0;
-    virtual void onCreate() = 0;
     virtual void onSolved() = 0;
 };
 
@@ -20,10 +20,10 @@ template <class Item, class Listener>
 class Puzzle : public BaseObservable<Listener>{
 
 public:
-    Puzzle(Randomizer* randomizer) :
-    mRandomizer(randomizer) {};
-    void create(int numItems, int seed);
-    void modifyItem(Item* item, const Item* newItem);
+    Puzzle() {};
+
+    void create(std::list<int> uniqueRands);
+    STATUS modifyItem(Item* item, const Item* newItem);
 
 protected:
     virtual bool isSolved() = 0;
@@ -31,12 +31,9 @@ protected:
 
 protected:
     std::list<Item> mItems;
-    Randomizer* mRandomizer;
 
 private:
-    void notifySolved(); //TODO: notifiedSolved??
-    void notifyItemsCreated(std::list<int> rands);
-    void notifyCreated();
+    void notifySolved();
 };
 
 #endif // PUZZLE_H

@@ -22,6 +22,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "_deps/googletest-src/googletest/cmake/internal_utils.cmake"
   "/home/julia/Documents/carstens_puzzle/src/CMakeLists.txt"
   "/home/julia/Documents/carstens_puzzle/test/CMakeLists.txt"
+  "/home/julia/Documents/carstens_puzzle/test/puzzle/CMakeLists.txt"
+  "/home/julia/Documents/carstens_puzzle/test/randomizer/CMakeLists.txt"
   "/usr/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
@@ -81,15 +83,17 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "_deps/googletest-build/googletest/generated/gtest.pc"
   "_deps/googletest-build/googletest/generated/gtest_main.pc"
   "_deps/googletest-build/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/puzzle/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/randomizer/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/CarstensPuzzle.dir/DependInfo.cmake"
-  "test/CMakeFiles/TestRandomizer.dir/DependInfo.cmake"
-  "test/CMakeFiles/TestPuzzle.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "test/puzzle/CMakeFiles/TestPuzzle.dir/DependInfo.cmake"
+  "test/randomizer/CMakeFiles/TestRandomizer.dir/DependInfo.cmake"
   )

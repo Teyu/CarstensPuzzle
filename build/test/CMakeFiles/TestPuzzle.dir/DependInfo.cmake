@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/julia/Documents/carstens_puzzle/test/PuzzleTest.cpp" "test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o" "gcc" "test/CMakeFiles/TestPuzzle.dir/PuzzleTest.cpp.o.d"
   "/home/julia/Documents/carstens_puzzle/src/Randomizer.cpp" "test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o" "gcc" "test/CMakeFiles/TestPuzzle.dir/__/src/Randomizer.cpp.o.d"
+  "/home/julia/Documents/carstens_puzzle/test/puzzle/PuzzleTest.cpp" "test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o" "gcc" "test/CMakeFiles/TestPuzzle.dir/puzzle/PuzzleTest.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

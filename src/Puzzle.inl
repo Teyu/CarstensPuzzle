@@ -2,26 +2,35 @@
 #define PUZZLE_INL
 
 template <class Item, class Listener>
-void Puzzle<Item, Listener>::create(int numItems, int seed) {
+void Puzzle<Item, Listener>::create(std::list<int> uniqueRands) {
 
-    std::list<int> rands = mRandomizer->createRandomNumbers (numItems, seed);
-
-    for (int rand : rands){
+    for (int rand : uniqueRands){
         mItems.push_back (createItem(rand));
     }
-
-    notifyItemsCreated (rands);
-    notifyCreated ();
 }
 
 template <class Item, class Listener>
-void Puzzle<Item, Listener>::modifyItem(Item* item, const Item* newItem) {
+STATUS Puzzle<Item, Listener>::modifyItem(Item* item, const Item* newItem) {
 
-    std::replace (mItems.begin(), mItems.end(), *item, *newItem);
+    STATUS status = NO_SUCCESS;
+
+    if (mItems.empty()) {
+        return status;
+    }
+
+    typename std::list<Item>::iterator first = mItems.begin();
+    for (; first != mItems.end(); ++first) {
+        if (*first == *item) {
+            *first = *newItem;
+            status = SUCCESS;
+        }
+    }
 
     if (this->isSolved ()){
         notifySolved();
     }
+
+    return status;
 };
 
 template <class Item, class Listener>
@@ -30,21 +39,5 @@ void Puzzle<Item, Listener>::notifySolved() {
         listener->onSolved();
     }
 }
-
-template <class Item, class Listener>
-void Puzzle<Item, Listener>::notifyItemsCreated(std::list<int> rands) {
-    for (Listener* listener : this->getListeners()){
-        for (int rand : rands){
-            listener->onCreateItem(rand);
-        }
-    }
-};
-
-template <class Item, class Listener>
-void Puzzle<Item, Listener>::notifyCreated() {
-    for (Listener* listener : this->getListeners()){
-        listener->onCreate();
-    }
-};
 
 #endif // PUZZLE_INL

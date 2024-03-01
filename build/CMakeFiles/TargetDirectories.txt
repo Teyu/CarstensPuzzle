@@ -11,8 +11,6 @@
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/local.dir
 /home/julia/Documents/carstens_puzzle/build/src/CMakeFiles/install/strip.dir
-/home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/TestRandomizer.dir
-/home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/TestPuzzle.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/edit_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/rebuild_cache.dir
 /home/julia/Documents/carstens_puzzle/build/test/CMakeFiles/list_install_components.dir
@@ -41,3 +39,17 @@
 /home/julia/Documents/carstens_puzzle/build/_deps/googletest-build/googletest/CMakeFiles/install.dir
 /home/julia/Documents/carstens_puzzle/build/_deps/googletest-build/googletest/CMakeFiles/install/local.dir
 /home/julia/Documents/carstens_puzzle/build/_deps/googletest-build/googletest/CMakeFiles/install/strip.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/TestPuzzle.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/edit_cache.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/rebuild_cache.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/list_install_components.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/install.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/install/local.dir
+/home/julia/Documents/carstens_puzzle/build/test/puzzle/CMakeFiles/install/strip.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/TestRandomizer.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/edit_cache.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/rebuild_cache.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/list_install_components.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/install.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/install/local.dir
+/home/julia/Documents/carstens_puzzle/build/test/randomizer/CMakeFiles/install/strip.dir

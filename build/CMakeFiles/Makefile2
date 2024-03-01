@@ -147,20 +147,52 @@ src/clean: src/CMakeFiles/CarstensPuzzle.dir/clean
 # Directory level rules for directory test
 
 # Recursive "all" directory target.
-test/all: test/CMakeFiles/TestRandomizer.dir/all
-test/all: test/CMakeFiles/TestPuzzle.dir/all
 test/all: _deps/googletest-build/all
+test/all: test/puzzle/all
+test/all: test/randomizer/all
 .PHONY : test/all
 
 # Recursive "preinstall" directory target.
 test/preinstall: _deps/googletest-build/preinstall
+test/preinstall: test/puzzle/preinstall
+test/preinstall: test/randomizer/preinstall
 .PHONY : test/preinstall
 
 # Recursive "clean" directory target.
-test/clean: test/CMakeFiles/TestRandomizer.dir/clean
-test/clean: test/CMakeFiles/TestPuzzle.dir/clean
 test/clean: _deps/googletest-build/clean
+test/clean: test/puzzle/clean
+test/clean: test/randomizer/clean
 .PHONY : test/clean
+
+#=============================================================================
+# Directory level rules for directory test/puzzle
+
+# Recursive "all" directory target.
+test/puzzle/all: test/puzzle/CMakeFiles/TestPuzzle.dir/all
+.PHONY : test/puzzle/all
+
+# Recursive "preinstall" directory target.
+test/puzzle/preinstall:
+.PHONY : test/puzzle/preinstall
+
+# Recursive "clean" directory target.
+test/puzzle/clean: test/puzzle/CMakeFiles/TestPuzzle.dir/clean
+.PHONY : test/puzzle/clean
+
+#=============================================================================
+# Directory level rules for directory test/randomizer
+
+# Recursive "all" directory target.
+test/randomizer/all: test/randomizer/CMakeFiles/TestRandomizer.dir/all
+.PHONY : test/randomizer/all
+
+# Recursive "preinstall" directory target.
+test/randomizer/preinstall:
+.PHONY : test/randomizer/preinstall
+
+# Recursive "clean" directory target.
+test/randomizer/clean: test/randomizer/CMakeFiles/TestRandomizer.dir/clean
+.PHONY : test/randomizer/clean
 
 #=============================================================================
 # Target rules for target src/CMakeFiles/CarstensPuzzle.dir
@@ -187,64 +219,6 @@ CarstensPuzzle: src/CMakeFiles/CarstensPuzzle.dir/rule
 src/CMakeFiles/CarstensPuzzle.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CarstensPuzzle.dir/build.make src/CMakeFiles/CarstensPuzzle.dir/clean
 .PHONY : src/CMakeFiles/CarstensPuzzle.dir/clean
-
-#=============================================================================
-# Target rules for target test/CMakeFiles/TestRandomizer.dir
-
-# All Build rule for target.
-test/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-test/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-test/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-test/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=6,7,8 "Built target TestRandomizer"
-.PHONY : test/CMakeFiles/TestRandomizer.dir/all
-
-# Build rule for subdir invocation for target.
-test/CMakeFiles/TestRandomizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 11
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TestRandomizer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/TestRandomizer.dir/rule
-
-# Convenience name for target.
-TestRandomizer: test/CMakeFiles/TestRandomizer.dir/rule
-.PHONY : TestRandomizer
-
-# clean rule for target.
-test/CMakeFiles/TestRandomizer.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestRandomizer.dir/build.make test/CMakeFiles/TestRandomizer.dir/clean
-.PHONY : test/CMakeFiles/TestRandomizer.dir/clean
-
-#=============================================================================
-# Target rules for target test/CMakeFiles/TestPuzzle.dir
-
-# All Build rule for target.
-test/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-test/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-test/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-test/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=3,4,5 "Built target TestPuzzle"
-.PHONY : test/CMakeFiles/TestPuzzle.dir/all
-
-# Build rule for subdir invocation for target.
-test/CMakeFiles/TestPuzzle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 11
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/TestPuzzle.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/TestPuzzle.dir/rule
-
-# Convenience name for target.
-TestPuzzle: test/CMakeFiles/TestPuzzle.dir/rule
-.PHONY : TestPuzzle
-
-# clean rule for target.
-test/CMakeFiles/TestPuzzle.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/TestPuzzle.dir/build.make test/CMakeFiles/TestPuzzle.dir/clean
-.PHONY : test/CMakeFiles/TestPuzzle.dir/clean
 
 #=============================================================================
 # Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
@@ -350,6 +324,64 @@ gtest_main: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+
+#=============================================================================
+# Target rules for target test/puzzle/CMakeFiles/TestPuzzle.dir
+
+# All Build rule for target.
+test/puzzle/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+test/puzzle/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+test/puzzle/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+test/puzzle/CMakeFiles/TestPuzzle.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f test/puzzle/CMakeFiles/TestPuzzle.dir/build.make test/puzzle/CMakeFiles/TestPuzzle.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/puzzle/CMakeFiles/TestPuzzle.dir/build.make test/puzzle/CMakeFiles/TestPuzzle.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=3,4,5 "Built target TestPuzzle"
+.PHONY : test/puzzle/CMakeFiles/TestPuzzle.dir/all
+
+# Build rule for subdir invocation for target.
+test/puzzle/CMakeFiles/TestPuzzle.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/puzzle/CMakeFiles/TestPuzzle.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 0
+.PHONY : test/puzzle/CMakeFiles/TestPuzzle.dir/rule
+
+# Convenience name for target.
+TestPuzzle: test/puzzle/CMakeFiles/TestPuzzle.dir/rule
+.PHONY : TestPuzzle
+
+# clean rule for target.
+test/puzzle/CMakeFiles/TestPuzzle.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/puzzle/CMakeFiles/TestPuzzle.dir/build.make test/puzzle/CMakeFiles/TestPuzzle.dir/clean
+.PHONY : test/puzzle/CMakeFiles/TestPuzzle.dir/clean
+
+#=============================================================================
+# Target rules for target test/randomizer/CMakeFiles/TestRandomizer.dir
+
+# All Build rule for target.
+test/randomizer/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+test/randomizer/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+test/randomizer/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+test/randomizer/CMakeFiles/TestRandomizer.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f test/randomizer/CMakeFiles/TestRandomizer.dir/build.make test/randomizer/CMakeFiles/TestRandomizer.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/randomizer/CMakeFiles/TestRandomizer.dir/build.make test/randomizer/CMakeFiles/TestRandomizer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/julia/Documents/carstens_puzzle/build/CMakeFiles --progress-num=6,7,8 "Built target TestRandomizer"
+.PHONY : test/randomizer/CMakeFiles/TestRandomizer.dir/all
+
+# Build rule for subdir invocation for target.
+test/randomizer/CMakeFiles/TestRandomizer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/randomizer/CMakeFiles/TestRandomizer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julia/Documents/carstens_puzzle/build/CMakeFiles 0
+.PHONY : test/randomizer/CMakeFiles/TestRandomizer.dir/rule
+
+# Convenience name for target.
+TestRandomizer: test/randomizer/CMakeFiles/TestRandomizer.dir/rule
+.PHONY : TestRandomizer
+
+# clean rule for target.
+test/randomizer/CMakeFiles/TestRandomizer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/randomizer/CMakeFiles/TestRandomizer.dir/build.make test/randomizer/CMakeFiles/TestRandomizer.dir/clean
+.PHONY : test/randomizer/CMakeFiles/TestRandomizer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

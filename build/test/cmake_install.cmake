@@ -47,3 +47,13 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/julia/Documents/carstens_puzzle/build/_deps/googletest-build/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/julia/Documents/carstens_puzzle/build/test/puzzle/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/julia/Documents/carstens_puzzle/build/test/randomizer/cmake_install.cmake")
+endif()
+
