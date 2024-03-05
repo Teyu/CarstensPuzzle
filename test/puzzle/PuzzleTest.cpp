@@ -73,26 +73,33 @@ protected:
     }
 };
 
-TEST_F(TestPuzzle, modifiedItemExistsReturnSuccess) {
+TEST_F(TestPuzzle, modifyItem_ItemExistsReturnSuccess) {
+
+    STATUS status = NO_SUCCESS;
 
     pMockPuzzle->create (RANDOM_INTS_DEFAULT);
-    STATUS status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
     ASSERT_EQ(status, SUCCESS);
 }
 
-TEST_F(TestPuzzle, modifiedItemNotExistingReturnNoSuccess) {
+TEST_F(TestPuzzle, modifyItem_ItemNotExistingReturnNoSuccess) {
+
+    STATUS status = SUCCESS;
 
     pMockPuzzle->create (RANDOM_INTS_DEFAULT);
-    STATUS status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
+    status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
     ASSERT_EQ(status, NO_SUCCESS);
 }
 
-TEST_F(TestPuzzle, notCreatedModifyItemReturnNoSuccess) {
-    STATUS status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+TEST_F(TestPuzzle, modifyItem_PuzzleNotCreatedReturnNoSuccess) {
+
+    STATUS status = SUCCESS;
+
+    status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
     ASSERT_EQ(status, NO_SUCCESS);
 }
 
-TEST_F(TestPuzzle, modifiedPuzzleUnsolvedDoNotNotify) {
+TEST_F(TestPuzzle, modifyItem_PuzzleUnsolvedDoNotNotify) {
 
     pMockPuzzle->setSolution (RANDOM_INTS_DEFAULT);
 
@@ -106,7 +113,7 @@ TEST_F(TestPuzzle, modifiedPuzzleUnsolvedDoNotNotify) {
     pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
 }
 
-TEST_F(TestPuzzle, modifiedPuzzleSolvedNotify) {
+TEST_F(TestPuzzle, modifyItem_PuzzleSolvedNotify) {
 
     pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
 
@@ -120,7 +127,7 @@ TEST_F(TestPuzzle, modifiedPuzzleSolvedNotify) {
     pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
 }
 
-TEST_F(TestPuzzle, multipleModificationsSolvedNotify) {
+TEST_F(TestPuzzle, modifyItem_multipleCallsPuzzleSolvedNotify) {
 
     pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
     MockItem *intermediate = new MockItem(NEW_RAND + 1);
@@ -138,7 +145,7 @@ TEST_F(TestPuzzle, multipleModificationsSolvedNotify) {
     delete intermediate;
 }
 
-TEST_F(TestPuzzle, multipleModificationsUnsolvedDoNotNotify) {
+TEST_F(TestPuzzle, modifyItem_multipleCallsPuzzleUnsolvedDoNotNotify) {
 
     pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
     MockItem *intermediate = new MockItem(NEW_RAND + 1);
@@ -156,15 +163,16 @@ TEST_F(TestPuzzle, multipleModificationsUnsolvedDoNotNotify) {
     delete intermediate;
 }
 
-TEST_F(TestPuzzle, multipleCreatesPreviousReplaced) {
+TEST_F(TestPuzzle, create_multipleCallsPreviousReplaced) {
 
     pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
+    STATUS status = SUCCESS;
 
     pMockPuzzle->create (RANDOM_INTS_WITH_NON_EXISTING);
     pMockPuzzle->clear ();
     pMockPuzzle->create (RANDOM_INTS_DEFAULT);
 
-    STATUS status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
+    status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
     EXPECT_EQ(status, NO_SUCCESS);
     status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNonExistingItem);
     EXPECT_EQ(status, SUCCESS);

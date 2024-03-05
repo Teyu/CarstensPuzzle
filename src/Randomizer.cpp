@@ -4,7 +4,6 @@
 #include <cstddef>
 #include <random>
 
-///////////////////////////------setMaxMinRange------//////////////////////////////
 bool Randomizer::setMaxMinRange(int max_val, int min_val){
     if (min_val >= max_val) {
         return false;
@@ -14,7 +13,7 @@ bool Randomizer::setMaxMinRange(int max_val, int min_val){
 
     return true;
 }
-///////////////////////////------createRandomNumbers------//////////////////////////////
+
 std::list<int> Randomizer::createRandomNumbers(int num_numbers, int seed /* = 0*/){
 
     int range = max_val - min_val;
@@ -30,12 +29,11 @@ std::list<int> Randomizer::createRandomNumbers(int num_numbers, int seed /* = 0*
 
     return randsOut;
 }
-///////////////////////////------getMinValue------//////////////////////////////
+
 int Randomizer::getMinValue(){
     return min_val;
 }
 
-///////////////////////////------getMaxValue------//////////////////////////////
 int Randomizer::getMaxValue(){
     return max_val;
 }
