@@ -5,45 +5,40 @@
 #include "MockItem.h"
 #include "MockListener.h"
 
+
+#define EXISTING_RAND 1
+#define NEW_RAND 3
+#define NON_EXISTING_RAND 99
+#define RANDOM_INTS_DEFAULT { 0, EXISTING_RAND, 13, 2, 4, 7, 5, 0, 28, 3 }
+#define RANDOM_INTS_WITH_NEW { 0, NEW_RAND, 13, 2, 4, 7, 5, 0, 28, 3 }
+#define RANDOM_INTS_WITH_NON_EXISTING { 0, NON_EXISTING_RAND, 13, 2, 4, 7, 5, 0, 28, 3 }
+
 using namespace testing;
 using ::testing::NiceMock;
 
-class SolvedPuzzle : public Puzzle<MockItem, MockListener> {
+class MockPuzzle : public Puzzle<MockItem, MockListener> {
 public:
-    SolvedPuzzle() : Puzzle<MockItem, MockListener>() {}
+    MockPuzzle() : Puzzle<MockItem, MockListener> () {}
 
     bool isSolved() override {
-        return true;
+        return std::equal (mItems.begin(), mItems.end (), mSolution.begin ());
+    }
+
+    void setSolution (std::list<MockItem> solution) {
+        mSolution = solution;
     }
 
     const MockItem createItem(int rand) override {
         return MockItem(rand);
     }
+private:
+    std::list<MockItem> mSolution;
 };
-
-class UnsolvedPuzzle : public Puzzle<MockItem, MockListener> {
-public:
-    UnsolvedPuzzle() : Puzzle<MockItem, MockListener> () {}
-
-    bool isSolved() override {
-        return false;
-    }
-
-    const MockItem createItem(int rand) override {
-        return MockItem(rand);
-    }
-};
-
-#define RANDOM_INTS { 0, 1, 13, 2, 4, 7, 1, 0, 28, 3}
-#define EXISTING_RAND 1
-#define SOME_RAND 3
-#define NON_EXISTING_RAND 99
 
 class TestPuzzle : public ::testing::Test {
 
 protected:
-    SolvedPuzzle *pSolvedPuzzle;
-    UnsolvedPuzzle *pUnsolvedPuzzle;
+    MockPuzzle *pMockPuzzle;
 
     MockListener *pMockListener1, *pMockListener2;
     MockItem *pMockExistingItem, *pMockNewItem, *pMockNonExistingItem;
@@ -56,20 +51,18 @@ protected:
     }
 
     virtual void SetUp() {
-        pSolvedPuzzle = new SolvedPuzzle();
-        pUnsolvedPuzzle = new UnsolvedPuzzle();
+        pMockPuzzle = new MockPuzzle();
 
         pMockListener1 = new MockListener();
         pMockListener2 = new MockListener();
 
         pMockExistingItem = new MockItem(EXISTING_RAND);
-        pMockNewItem = new MockItem(SOME_RAND);
+        pMockNewItem = new MockItem(NEW_RAND);
         pMockNonExistingItem = new MockItem(NON_EXISTING_RAND);
     }
 
     virtual void TearDown() {
-        delete pSolvedPuzzle;
-        delete pUnsolvedPuzzle;
+        delete pMockPuzzle;
 
         delete pMockListener1;
         delete pMockListener2;
@@ -80,80 +73,101 @@ protected:
     }
 };
 
-//TODO: test multiple calls of modify item
-//TODO: test execution of modify item
-//TODO: test multiple calls of create (will delete previous? Or seperate delete function?)
-
-TEST_F(TestPuzzle, modifiedItemNotExistingReturnNoSuccess) {
-
-    pUnsolvedPuzzle->create (RANDOM_INTS);
-    STATUS status = pUnsolvedPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
-    ASSERT_EQ(status, NO_SUCCESS);
-}
-
 TEST_F(TestPuzzle, modifiedItemExistsReturnSuccess) {
 
-    pUnsolvedPuzzle->create (RANDOM_INTS);
-    STATUS status = pUnsolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    STATUS status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
     ASSERT_EQ(status, SUCCESS);
 }
 
-TEST_F(TestPuzzle, notCreatedModifyItemReturnNoSuccess) {
+TEST_F(TestPuzzle, modifiedItemNotExistingReturnNoSuccess) {
 
-    STATUS status = pUnsolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    STATUS status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
     ASSERT_EQ(status, NO_SUCCESS);
 }
 
-TEST_F(TestPuzzle, modifyPuzzleUnsolvedDoNotNotify) {
+TEST_F(TestPuzzle, notCreatedModifyItemReturnNoSuccess) {
+    STATUS status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    ASSERT_EQ(status, NO_SUCCESS);
+}
 
-    pUnsolvedPuzzle->addListener (this->pMockListener1);
-    pUnsolvedPuzzle->addListener (this->pMockListener2);
+TEST_F(TestPuzzle, modifiedPuzzleUnsolvedDoNotNotify) {
+
+    pMockPuzzle->setSolution (RANDOM_INTS_DEFAULT);
+
+    pMockPuzzle->addListener (this->pMockListener1);
+    pMockPuzzle->addListener (this->pMockListener2);
 
     EXPECT_CALL(*pMockListener1, onSolved()).Times(0);
     EXPECT_CALL(*pMockListener2, onSolved()).Times(0);
 
-    pUnsolvedPuzzle->create (RANDOM_INTS);
-    pUnsolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
 }
 
-TEST_F(TestPuzzle, puzzleSolvedNoListenersNotNotified) {
+TEST_F(TestPuzzle, modifiedPuzzleSolvedNotify) {
 
-    EXPECT_CALL(*pMockListener1, onSolved()).Times(0);
-    EXPECT_CALL(*pMockListener2, onSolved()).Times(0);
-
-    pSolvedPuzzle->create (RANDOM_INTS);
-    pSolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
-}
-
-TEST_F(TestPuzzle, puzzleSolvedHasListenersNotified) {
+    pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
 
     EXPECT_CALL(*pMockListener1, onSolved());
     EXPECT_CALL(*pMockListener2, onSolved());
 
-    pSolvedPuzzle->addListener (this->pMockListener1);
-    pSolvedPuzzle->addListener (this->pMockListener2);
+    pMockPuzzle->addListener (this->pMockListener1);
+    pMockPuzzle->addListener (this->pMockListener2);
 
-    pSolvedPuzzle->create (RANDOM_INTS);
-    pSolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
 }
 
-TEST_F(TestPuzzle, puzzleNotSolvedNoListenersNotified) {
+TEST_F(TestPuzzle, multipleModificationsSolvedNotify) {
 
-    pUnsolvedPuzzle->create (RANDOM_INTS);
-    pUnsolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
+    MockItem *intermediate = new MockItem(NEW_RAND + 1);
+
+    EXPECT_CALL(*pMockListener1, onSolved()).Times (1);
+    EXPECT_CALL(*pMockListener2, onSolved()).Times (1);
+
+    pMockPuzzle->addListener (this->pMockListener1);
+    pMockPuzzle->addListener (this->pMockListener2);
+
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    pMockPuzzle->modifyItem (this->pMockExistingItem, intermediate);
+    pMockPuzzle->modifyItem (intermediate, this->pMockNewItem);
+
+    delete intermediate;
+}
+
+TEST_F(TestPuzzle, multipleModificationsUnsolvedDoNotNotify) {
+
+    pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
+    MockItem *intermediate = new MockItem(NEW_RAND + 1);
 
     EXPECT_CALL(*pMockListener1, onSolved()).Times(0);
     EXPECT_CALL(*pMockListener2, onSolved()).Times(0);
+
+    pMockPuzzle->addListener (this->pMockListener1);
+    pMockPuzzle->addListener (this->pMockListener2);
+
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
+    pMockPuzzle->modifyItem (this->pMockExistingItem, intermediate);
+    pMockPuzzle->modifyItem (intermediate, this->pMockNonExistingItem);
+
+    delete intermediate;
 }
 
-TEST_F(TestPuzzle, puzzleNotSolvedHasListenersNotNotified) {
+TEST_F(TestPuzzle, multipleCreatesPreviousReplaced) {
 
-    pUnsolvedPuzzle->addListener (this->pMockListener1);
-    pUnsolvedPuzzle->addListener (this->pMockListener2);
+    pMockPuzzle->setSolution (RANDOM_INTS_WITH_NEW);
 
-    EXPECT_CALL(*pMockListener1, onSolved()).Times(0);
-    EXPECT_CALL(*pMockListener2, onSolved()).Times(0);
+    pMockPuzzle->create (RANDOM_INTS_WITH_NON_EXISTING);
+    pMockPuzzle->clear ();
+    pMockPuzzle->create (RANDOM_INTS_DEFAULT);
 
-    pUnsolvedPuzzle->create (RANDOM_INTS);
-    pUnsolvedPuzzle->modifyItem (this->pMockExistingItem, this->pMockNewItem);
+    STATUS status = pMockPuzzle->modifyItem (this->pMockNonExistingItem, this->pMockNewItem);
+    EXPECT_EQ(status, NO_SUCCESS);
+    status = pMockPuzzle->modifyItem (this->pMockExistingItem, this->pMockNonExistingItem);
+    EXPECT_EQ(status, SUCCESS);
+
 }
+

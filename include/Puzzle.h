@@ -23,6 +23,7 @@ public:
     Puzzle() {};
 
     void create(std::list<int> uniqueRands);
+    void clear();
     STATUS modifyItem(Item* item, const Item* newItem);
 
 protected:

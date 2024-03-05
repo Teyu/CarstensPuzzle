@@ -10,6 +10,16 @@ void Puzzle<Item, Listener>::create(std::list<int> uniqueRands) {
 }
 
 template <class Item, class Listener>
+void Puzzle<Item, Listener>::clear() {
+
+    if (mItems.empty()) {
+        return;
+    }
+
+    mItems.clear();
+}
+
+template <class Item, class Listener>
 STATUS Puzzle<Item, Listener>::modifyItem(Item* item, const Item* newItem) {
 
     STATUS status = NO_SUCCESS;
@@ -23,6 +33,7 @@ STATUS Puzzle<Item, Listener>::modifyItem(Item* item, const Item* newItem) {
         if (*first == *item) {
             *first = *newItem;
             status = SUCCESS;
+            break;
         }
     }
 
